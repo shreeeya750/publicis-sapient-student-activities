@@ -7,6 +7,68 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>
+        Form
+    </h1>
+    <table>
+        <tr>
+            <form method = "get">
+                <!-- Name -->
+                <label>
+                    Name <input type = "text" name = "name" placeholder = "Enter your name" />
+                </label>
+                <br>
+        
+                <!-- Password -->
+                <label>
+                    Password <input name = "password" placeholder = "Enter password"/>
+                </label>
+                <br>
+        
+                <!-- Gender -->
+                Gender 
+                <input type = "radio" id = "gender1" name = "gender1" value = "male"/>
+                <label for = "gender1"> Male</label>
+                <input type = "radio" id = "gender2" name = "gender2" value = "female"/>
+                <label for = "gender2"> Female</label>
+                <br>
+        
+                <!-- Skills -->
+                Skills
+                <input type = "checkbox" id = "skill1" name = "skill" value = "C"/>
+                <label for = "skill1"> C</label>
+                <input type = "checkbox" id = "skill2" name = "skill2" value = "Java"/>
+                <label for = "skill2"> Java</label>
+                <input type = "checkbox" id = "skill3" name = "skill3" value = "JS"/>
+                <label for = "skill3"> JS</label>
+                <br>
+        
+                <!-- Qualifications -->
+                <label for = "qualifications"> Qualifications</label>
+                <select name="qualifications" id="qualifications">
+                    <option value="associates" name = "qual1">Associate Degree</option>
+                    <option value="bachelors" name = "qual2">Bachelor's Degree</option>
+                    <option value="masters" name = "qual3">Master's Degree</option>
+                    <option value="doctorate" name = "qual4">Doctorate Degree</option>
+                </select>
+                <br>
+        
+                <!-- Date of Birth -->
+                <label>
+                    DoB <input type = "date" name = "dob"/>
+                </label>
+                <br>
+
+                <!-- Submit and Reset buttons -->
+                <label>
+                    <input type = "submit" value = "Register"/>
+                </label>
+                <label>
+                    <input type = "submit" value = "Reset"/>
+                </label>
+            </form>
+        </tr>
+    </table>
     
 </body>
 </html>

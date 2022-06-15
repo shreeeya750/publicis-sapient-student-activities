@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .smallImages {
+            width: 100; height: 100;
+            border: 2px solid black;
+            padding: 10 px;
+        }
+    </style>
+</head>
+<body>
+    <!-- EXAMPLE #1: EVENT HANDLERS -->
+    <h1>Demo on Javascript</h1>
+    <input type = "text" id = "i1">
+    <br>
+    <button onclick = "handleClick(event)">My button</button>
+    <p onclick = "handleClick(event)">My paragraph</p>
+    <div id = "i2">Name is: </div>
+    <br>
+
+    <!-- EXAMPLE #2: EVENT HANDLERS WITH COLOR -->
+    <div id = "i3" style = 'color: red'>Some colors</div>
+    <button onclick = "click(event)">Change color</button>
+    <div>
+        <button onclick = "addColor('red')">Red</button>
+        <button onclick = "addColor('green')">Green</button>
+        <button onclick = "addColor('blue')">Blue</button>
+    </div>
+    <br>
+
+    <!-- EXAMPLE #3: FORM VALIDATION -->
+    <h2> Login Form</h2>
+    <form action = "index.html" method = "post" onsubmit = "return handleSubmit()">
+        Username <input type = "text" name = "un" />
+        <br>
+        Password <input type = "password" name = "pw" />
+        <br>
+        <input type = "submit" value = "submit" />
+    </form>
+
+    <!-- EXAMPLE #4: CANVAS -->
+    <canvas id = "c1" style = "border: 2px solid black" width = "400" height = "400"></canvas>
+    
+    <!-- Script -->
+    <script type = "text/javascript">
+        // EXAMPLE #5: CREATING ARRAYS OF OBJECTS
+        let items = [2, 1, 3, 5, 4]; // items.length returns size of array
+        for (let index = 0; index < items.length; index++) {
+            document.write('<p>items = ' + items[index] + '</p>');
+        }
+
+        // EXAMPLE #1: EVENT HANDLERS
+        function handleClick(e) {
+            console.log(e)
+            console.log(e.target); // one way to access the element in console
+            let ele = document.getElementById("i1"); // input i1
+            console.log(ele.value);
+            let ele2 = document.getElementById("i2"); // div i2
+            // element has many properties and functions
+            ele2.innerHTML = ele2.innerHTML + "<b>" + ele.value + "</b>"; // return and update content
+        }
+
+        // EXAMPLE #2: EVENT HANDLERS WITH COLOR
+        function click() {
+            let ele = document.getElementById("i3"); // div i3
+            ele.style.color = 'red'; //<div id = "i3" style = "color: red"
+        }
+        function addColor(c) {
+            let ele = document.getElementById("i3"); // div i3
+            ele.style.color = c;
+        }
+
+        //EXAMPLE #3: FORM HANDLING
+        function handleSubmit(){
+            let loginForm = document.login; // form['login']
+            let user = loginForm.un; // name = "un" in HTML (input['un'])
+            let pass = loginForm.pw; // name = "pw" in HTML (input['pw'])
+            console.log(user.value);
+            if (user.value.length == 0) {
+                alert('Username is empty')
+                return false; // means that form is not submitted
+            }
+            if ([pass.value.length == 0]) {
+                alert('Password is empty');
+                return false;
+            }
+        }
+
+        // EXAMPLE #4: CANVAS
+        // getContext('2d') gives the canvas object, so we can access its member
+        let ctx = document.getElementById('c1').getContext('2d');
+        // fillRect(x, y, w, h)
+        ctx.fillRect(50, 50, 50, 50);
+        ctx.fillStyle = 'red';
+        ctx.fillRect(100, 100, 50, 50);
+        // beginPath() to create an arc
+        ctx.beginPath();
+        // arc(x, y, r, start, end, true/false): true = counterclockwise
+        ctx.arc(200, 200, 25, 0, Math.PI, true); // Math.PI = 180 degrees
+        ctx.fill(); // fills arc after previous command intializes the arc
+        ctx.beginPath(); // must specify whenever you start a new path to avoid overlap
+        ctx.arc(200, 200, 20, 0, Math.PI, true);
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+    </script>
+    
+</body>
+</html>

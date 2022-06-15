@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class = "red">
+        <table>
+            <tr>
+                <form name = "login" action = "form.html" method = "post" onsubmit = " return handleSubmit()">
+                    <!-- First Name -->
+                    <label>
+                        First Name <input type = "text" name = "firstname" placeholder = "Enter your first name" />
+                    </label>
+                    <br>
+                    
+                     <!-- Last Name -->
+                     <label>
+                        Last Name <input type = "text" name = "lastname" placeholder = "Enter your last name" />
+                    </label>
+                    <br>
+    
+                    <!-- Gender -->
+                    Gender 
+                    <input type = "radio" id = "gender1" name = "gender1" value = "male"/>
+                    <label for = "gender1"> Male</label>
+                    <input type = "radio" id = "gender2" name = "gender2" value = "female"/>
+                    <label for = "gender2"> Female</label>
+                    <br>
+    
+                    <!-- Password -->
+                    <label>
+                        Password <input type = "password" id = "password" name = "password" placeholder = "Enter password"/>
+                    </label>
+                    <br>
+
+                    <!-- Confirm Password -->
+                    <label>
+                        Confirm Password <input type = "password" id = "confirm" name = "confirm" placeholder = "Reenter password"/>
+                    </label>
+                    <br>
+    
+                    <!-- Skills -->
+                    Skills
+                    <input type = "checkbox" id = "skill1" name = "skill" value = "C"/>
+                    <label for = "skill1"> C</label>
+                    <input type = "checkbox" id = "skill2" name = "skill2" value = "Java"/>
+                    <label for = "skill2"> Java</label>
+                    <input type = "checkbox" id = "skill3" name = "skill3" value = "JS"/>
+                    <label for = "skill3"> JS</label>
+                    <br>
+            
+                    <!-- Register button -->
+                    <label>
+                        <input type = "submit" value = "Register"/>
+                    </label>
+                </form>
+            </tr>
+        </table>
+    </div>
+    
+    <script>
+        function handleSubmit(){
+            let loginForm = document.login; // form['login']
+            let first = loginForm.firstname;
+            let last = loginForm.lastname;
+            let gen1 = loginForm.gender1;
+            let gen2 = loginForm.gender2;
+            let pw = loginForm.password;
+            let confirmpw = loginForm.confirm;
+            let sk1 = loginForm.skill1;
+            let sk2 = loginForm.skill2;
+            let sk3 = loginForm.skill3;
+
+            if (first.value.length < 3) {
+                window.alert('First name too short');
+                return true; // means that form is not submitted
+            }
+
+            if (last.value.length < 2) {
+                window.alert('Last name too short');
+                return true;
+            }
+            
+            if (document.getElementById('gender1').checked == false && document.getElementById('gender2').checked == false) {
+                window.alert('Gender not selected');
+                return true;
+            }
+
+            if (document.getElementById('password').value != document.getElementById('confirm').value) {
+                window.alert('Passwords do not match');
+                return true;
+            }
+
+            if (document.getElementById('skill1').checked == false && document.getElementById('skill2').checked == false && document.getElementById('skill3').checked == false) {
+                window.alert('Skills not selected');
+                return true;
+            }
+            
+        }
+    </script>
+</body>
+</html>

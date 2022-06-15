@@ -90,6 +90,10 @@
                 window.alert('Gender not selected');
                 return true;
             }
+            if (document.getElementById('gender1').checked == true && document.getElementById('gender2').checked == true) {
+                window.alert('Too many genders selected');
+                return true;
+            }
 
             if (document.getElementById('password').value != document.getElementById('confirm').value) {
                 window.alert('Passwords do not match');
